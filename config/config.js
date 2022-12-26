@@ -12,6 +12,7 @@ const envVarsSchema = Joi.object({
     // MYSQL_PASS: Joi.string().required().description('Mysql password'),
 
     JWT_SECRET: Joi.string().required().description('jwt secret'),
+    MONGO_URL: Joi.string().required().description("mongo db connection url")
 
     // ADMIN_EMAIL: Joi.string().required().description('admin email'),
     // ADMIN_USERNAME: Joi.string().required().description('admin username'),
@@ -36,6 +37,7 @@ const appConfig = {
         'Version 1': '/v1',
     },
     jwtSecret: envVars.JWT_SECRET,
+    mongo_url: envVars.MONGO_URL,
     // admin: {
     //     email: envVars.ADMIN_EMAIL,
     //     username: envVars.ADMIN_USERNAME,
