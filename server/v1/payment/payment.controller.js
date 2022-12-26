@@ -54,7 +54,7 @@ async function updateCheckoutSessionStatus(req, res, next) {
 
 async function getSessionDetailsById(req, res, next) {
     try {
-        const id = req.body.id;
+        const id = req.query.id;
         const stripe = req.app.get('stripe');
         const session = await stripe.checkout.sessions.retrieve(
             id,
@@ -65,8 +65,23 @@ async function getSessionDetailsById(req, res, next) {
     } 
 }
 
+
+
+async function getBySessionKey(req, res, next) {
+    try {
+        const { 
+            session_key,
+        } = req.body;
+        await CheckoutModel._getBySessionKey(session_key);
+        next({ data: null, });
+    } catch (e) {
+        next({ err: e, });
+    }
+}
+
 module.exports = {
     checkout,
     getSessionDetailsById,
     updateCheckoutSessionStatus,
+    getBySessionKey,
 }

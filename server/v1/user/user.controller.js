@@ -101,9 +101,34 @@ async function deleteUser(req, res, next) {
 }
 
 
+async function login(req, res, next) {
+    try {
+        const {
+            email_id: emailId,
+            password,
+        } = req.body;
+
+        const user = await UserModel._getUserByEmailAndPassword(emailId, password);
+        if (!user.length) {
+            throw new Error('no user exists');
+        }
+        const details = user[0];
+        next({ 
+            data: {
+                user: details, 
+                token: Bl.createToken({id: details._id}),
+            }
+        });
+    } catch (e) {
+        console.error(e);
+        next({ err: e, });
+    }
+}
+
 module.exports = {
     register,
     getUser,
     deleteUser,
     updateUser,
+    login,
 };

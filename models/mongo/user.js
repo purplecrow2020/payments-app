@@ -28,9 +28,18 @@ function _get(filter) {
 }
 
 
+function _getUserByEmailAndPassword(emailId, password) {
+    return UserModel.find({
+        email_id: emailId,
+        password,
+        is_deleted: false,
+    });
+}
+
 
 module.exports = {
     _create,
     _update,
     _get,
+    _getUserByEmailAndPassword,
 };

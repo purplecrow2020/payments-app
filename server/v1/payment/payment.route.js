@@ -9,6 +9,8 @@ const router = express.Router();
 router.route('/checkout').post(AuthGaurd, paymentCtrl.checkout);
 router.route('/session-by-id').get(paymentCtrl.getSessionDetailsById);
 router.route('/update-session').put(paymentCtrl.updateCheckoutSessionStatus);
+router.route('/session-by-key').get(paymentCtrl.getBySessionKey);
+
 
 
 

@@ -31,10 +31,16 @@ function _update(id, updatedFeildsObject) {
 }
 
 
+function _getBySessionKey(key) {
+    return CheckoutModel.findOne({ session_key: key, });
+}
+
+
 
 
 module.exports = {
     _create,
     _update,
     _updateBySessionKey,
+    _getBySessionKey,
 };
