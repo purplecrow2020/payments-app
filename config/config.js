@@ -37,7 +37,8 @@ const appConfig = {
         'Version 1': '/v1',
     },
     jwtSecret: envVars.JWT_SECRET,
-    mongo_url: envVars.MONGO_URL,
+    mongoUrl: envVars.MONGO_URL,
+    stripeKey: envVars.STRIPE_KEY,
     // admin: {
     //     email: envVars.ADMIN_EMAIL,
     //     username: envVars.ADMIN_USERNAME,
@@ -45,4 +46,5 @@ const appConfig = {
     // },
 };
 
+console.log(appConfig);
 module.exports = { ...appConfig };

@@ -10,7 +10,6 @@ function sendResponse(result, _req, res, next) {
         data: null,
     };
     try {
-        console.log(result);
         if (result instanceof (ValidationError)) {
             throw result;
         }
