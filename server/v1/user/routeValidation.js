@@ -9,6 +9,21 @@ module.exports = {
                 password: Joi.string().required(),
             },
         },
+        update: {
+            body: {
+                id: Joi.string().email().required(),
+            },
+        },
+        delete: {
+            body: {
+                id: Joi.string().email().required(),
+            },
+        },
+        get: {
+            body: {
+                id: Joi.string().email().required(),
+            },
+        },
         login: {
             body: {
                 email: Joi.string().email().required(),
