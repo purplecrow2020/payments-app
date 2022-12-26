@@ -1,9 +1,5 @@
-<!-- 
 
-    FUNCTIONALITY ( BY OBJECTS )
-
-
-    1. user -> ( create, read, delete, update )
-    2. transaction -> ( transfer )
-
- -->
+<div>
+    <li>user -> ( create, read, delete, update )</li>
+    </li> transaction -> (transfer) </li>
+</div>
