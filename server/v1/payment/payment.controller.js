@@ -57,7 +57,7 @@ async function getSessionDetailsById(req, res, next) {
         const id = req.body.id;
         const stripe = req.app.get('stripe');
         const session = await stripe.checkout.sessions.retrieve(
-            id
+            id,
         );
         next({ data: session, });
     } catch (e) {

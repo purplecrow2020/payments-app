@@ -22,7 +22,7 @@ async function _create(obj) {
 }
 
 function _updateBySessionKey(key, updatedFeildsObject) {
-    return UserModel.findOneAndUpdate({ session_id: key, }, { ... updatedFeildsObject });
+    return CheckoutModel.findOneAndUpdate({ session_key: key, }, { ... updatedFeildsObject });
 }
 
 
