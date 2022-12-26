@@ -7,13 +7,11 @@ const bodyParser = require('body-parser');
 const config = require('./config');
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
+const Stripe = require('stripe');
+const stripe = Stripe(config.stripeKey);
 
 
-
-
-
-
-const mongoDB = config.mongo_url;
+const mongoDB = config.mongoUrl;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Get the default connection
@@ -29,6 +27,7 @@ db.mongo.write = mongoose.connection;
 
 app.set('db', db);
 app.set('config', config);
+app.set('stripe', stripe);
 
 app.use(helmet());
 app.use(cors());
